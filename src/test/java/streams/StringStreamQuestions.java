@@ -22,19 +22,19 @@ public class StringStreamQuestions {
                 .sorted(Map.Entry.<Character, Long>comparingByValue().reversed())
                 .skip(1)
                 .findFirst();
-        Assert.assertEquals(Optional.of(Map.entry('c', 4L)), secondMostRepeatedCharacter);
+        Assert.assertEquals(secondMostRepeatedCharacter, Optional.of(Map.entry('c', 4L)));
     }
 
     @Test
     public void findDuplicatesInAList() {
 
         List<String> courses = new ArrayList<>(List.of("java", "selenium", "java", "rest assured"));
-        Assert.assertEquals(Map.of("java", 2L), courses.stream()
+        Assert.assertEquals(courses.stream()
                 .collect(Collectors.groupingBy(c -> c, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .filter(entry -> entry.getValue() > 1)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)));
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)), Map.of("java", 2L));
     }
 
     @Test
@@ -43,9 +43,9 @@ public class StringStreamQuestions {
         String input = "I am learning Streams API in Java";
         String expectedOutput = "learning";
 
-        Assert.assertEquals(expectedOutput, Stream.of(input.split("\\s+"))
+        Assert.assertEquals(Stream.of(input.split("\\s+"))
                 .max(Comparator.comparing(String::length))
-                .get());
+                .get(), expectedOutput);
     }
 
     @Test
@@ -53,20 +53,35 @@ public class StringStreamQuestions {
         String input = "dabcadefg";
         String expectedOutput = "dabcefg";
 
-        Assert.assertEquals(expectedOutput, Arrays.stream(input.split(""))
+        Assert.assertEquals(Arrays.stream(input.split(""))
                 .distinct()
-                .collect(Collectors.joining()));
+                .collect(Collectors.joining()), expectedOutput);
     }
 
     @Test
-    public void findTheWordThatHasTheSecondHighestLength(){
+    public void findTheWordThatHasTheSecondHighestLength() {
         String input = "I am learning Streams API in Java";
         String expectedOutput = "Streams";
-        Assert.assertEquals(expectedOutput, Arrays.stream(input.split(" "))
+        Assert.assertEquals(Arrays.stream(input.split(" "))
                 .sorted(Comparator.comparing(String::length).reversed())
                 .skip(1)
                 .findFirst()
-                .orElse(" "));
+                .orElse(" "), expectedOutput);
+    }
+
+    @Test
+    public void findSecondHighestWordLength() {
+        String input = "I am learning Streams API in Java";
+        int expectedOutput = 7;
+
+        Assert.assertEquals(Arrays.stream(input.split(" "))
+                        .map(String::length)
+                        .sorted(Comparator.reverseOrder())
+                        .skip(1)
+                        .findFirst()
+                        .orElse(0)
+                , expectedOutput);
+
     }
 
 
