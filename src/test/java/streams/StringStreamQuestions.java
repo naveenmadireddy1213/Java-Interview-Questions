@@ -38,17 +38,36 @@ public class StringStreamQuestions {
     }
 
     @Test
-    public void givenASentenceFindTheWordThatHasTheHighestLength(){
+    public void givenASentenceFindTheWordThatHasTheHighestLength() {
 
         String input = "I am learning Streams API in Java";
         String expectedOutput = "learning";
 
-       Assert.assertEquals(expectedOutput,  Stream.of(input.split("\\s+"))
+        Assert.assertEquals(expectedOutput, Stream.of(input.split("\\s+"))
                 .max(Comparator.comparing(String::length))
                 .get());
-
     }
 
+    @Test
+    public void removeDuplicatesFromTheStringAndReturnInTheSameOrder() {
+        String input = "dabcadefg";
+        String expectedOutput = "dabcefg";
+
+        Assert.assertEquals(expectedOutput, Arrays.stream(input.split(""))
+                .distinct()
+                .collect(Collectors.joining()));
+    }
+
+    @Test
+    public void findTheWordThatHasTheSecondHighestLength(){
+        String input = "I am learning Streams API in Java";
+        String expectedOutput = "Streams";
+        Assert.assertEquals(expectedOutput, Arrays.stream(input.split(" "))
+                .sorted(Comparator.comparing(String::length).reversed())
+                .skip(1)
+                .findFirst()
+                .orElse(" "));
+    }
 
 
 }
