@@ -1,4 +1,4 @@
-package TwoPointerTecchniques;
+package twopointertechniques;
 
 import org.testng.annotations.Test;
 

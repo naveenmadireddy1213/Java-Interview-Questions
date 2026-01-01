@@ -1,4 +1,4 @@
-package RealTimeExample;
+package realtimeexamples;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

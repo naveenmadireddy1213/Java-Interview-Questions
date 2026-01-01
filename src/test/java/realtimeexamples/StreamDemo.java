@@ -1,4 +1,4 @@
-package RealTimeExample;
+package realtimeexamples;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.testng.annotations.Test;
@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static RealTimeExample.EmployeeData.getEmployeeData;
+import static realtimeexamples.EmployeeData.getEmployeeData;
 
 
 public class StreamDemo {
