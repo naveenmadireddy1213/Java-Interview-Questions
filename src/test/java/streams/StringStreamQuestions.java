@@ -46,7 +46,7 @@ public class StringStreamQuestions {
         Assert.assertEquals(Stream.of(input.split("\\s+"))
                 .max(Comparator.comparing(String::length))
                         .get(), expectedOutput);
-//with max method
+//with out max method
         Assert.assertEquals(Stream.of(input.split("\\s+"))
                 .sorted(Comparator.comparing(String::length).reversed())
                 .findFirst()
