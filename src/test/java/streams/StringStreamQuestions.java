@@ -45,7 +45,13 @@ public class StringStreamQuestions {
 
         Assert.assertEquals(Stream.of(input.split("\\s+"))
                 .max(Comparator.comparing(String::length))
-                .get(), expectedOutput);
+                        .get(), expectedOutput);
+//with max method
+        Assert.assertEquals(Stream.of(input.split("\\s+"))
+                .sorted(Comparator.comparing(String::length).reversed())
+                .findFirst()
+                .orElse(" "), expectedOutput);
+
     }
 
     @Test
@@ -81,7 +87,17 @@ public class StringStreamQuestions {
                         .findFirst()
                         .orElse(0)
                 , expectedOutput);
+    }
 
+    @Test
+    public void findWordOccurrencesSortedByFrequency() {
+
+        String input = "I am learning Streams API in Java Java";
+        //  String expectedOutput = "{java=2, in=1, I=1, API=1, leaning=1, am=1, Streams=1";
+
+        System.out.println(Arrays.stream(input.split(" "))
+                .map(String::toLowerCase)
+                .collect(Collectors.groupingBy(w -> w, Collectors.counting())));
     }
 
 
