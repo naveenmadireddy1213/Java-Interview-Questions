@@ -149,4 +149,9 @@ public class TwoPointerSolutions {
         }
     }
 
+    @Test
+    public void removeGivenElementFromAnArray(){
+
+    }
+
 }
