@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
-public class MoveZerosToEnd {
+public class MoveTargetedNumberToEndOrFront {
 
     @Test
     public void shouldMoveAllTargetedNumberToTheEndOfArray() {
@@ -12,6 +12,8 @@ public class MoveZerosToEnd {
         int[] input = {0, 1, 0, 3, 12, 1};
 
         int pointer = 0;
+
+        //targeted number is 1
 
         for (int i = 0; i < input.length; i++) {
 
@@ -29,9 +31,11 @@ public class MoveZerosToEnd {
     }
 
     @Test
-    public void moveZerosToTheFrontOfTheArray() {
+    public void shouldMoveAllTargetedNumberToTheFrontOfArray() {
         int[] nums = {5, 0, 1, 0, 3, 12};
         int pointer = nums.length - 1;
+
+        //targeted number is 0
 
         for (int i = nums.length - 1; i >= 0; i--) {
             if (nums[i] != 0) {
