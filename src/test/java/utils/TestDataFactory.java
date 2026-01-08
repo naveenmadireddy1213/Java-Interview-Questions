@@ -1,10 +1,12 @@
-package realtimeexamples;
+package utils;
+
+import models.Employee;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
+public class TestDataFactory {
 
-public class EmployeeData {
 
     public static ArrayList<Employee> getEmployeeData() {
         return new ArrayList<Employee>(Arrays.asList(

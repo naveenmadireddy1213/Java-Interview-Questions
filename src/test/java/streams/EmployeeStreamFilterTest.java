@@ -1,17 +1,21 @@
-package realtimeexamples;
+package streams;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.testng.annotations.Test;
+import models.Employee;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static realtimeexamples.EmployeeData.getEmployeeData;
+import static utils.TestDataFactory.getEmployeeData;
 
+public class EmployeeStreamFilterTest {
 
-public class StreamDemo {
-   ArrayList<Employee> employeeData = getEmployeeData();
+    ArrayList<Employee> employeeData = getEmployeeData();
 
 
     @Test
@@ -24,7 +28,7 @@ public class StreamDemo {
 
         System.out.println("--------------------------------");
 
-      //Salary >20k and lastName starts with "m"; if we want to reuse these salary in any other places.
+        //Salary >20k and lastName starts with "m"; if we want to reuse these salary in any other places.
 
 
         Predicate<Employee> highSalary = employee -> employee.getSalary() > 20000;
@@ -55,6 +59,4 @@ public class StreamDemo {
 
         System.out.println(employeeListSortByFirstName);
     }
-
-
 }
