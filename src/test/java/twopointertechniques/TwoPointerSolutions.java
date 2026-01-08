@@ -6,26 +6,7 @@ import java.util.Arrays;
 
 public class TwoPointerSolutions {
 
-    @Test
-    public void reverseArrayUsingTwoPointerTechnique() {
-        int[] array = {1, 2, 3, 4, 5};
-        int left = 0;
-        int right = array.length - 1;
 
-        if (array.length <= 1 || array == null) {
-            System.out.println(Arrays.toString(array));
-            return;
-        }
-
-        while (left < right) {
-            int temp = array[left];
-            array[left] = array[right];
-            array[right] = temp;
-            left++;
-            right--;
-        }
-        System.out.println(Arrays.toString(array));
-    }
 
     @Test
     public void palindromeUsingTwoPointer() {
@@ -82,46 +63,7 @@ public class TwoPointerSolutions {
 
     }
 
-    @Test
-    public void moveOnesToTheEndOfTheArray() {
 
-        int[] input = {0, 1, 0, 3, 12, 1};
-
-        int pointer = 0;
-
-        for (int i = 0; i < input.length; i++) {
-
-            if (input[i] != 1) {
-                input[pointer] = input[i];
-                pointer++;
-            }
-        }
-
-        while (pointer < input.length) {
-            input[pointer] = 1;
-            pointer++;
-        }
-        System.out.println(Arrays.toString(input));
-    }
-
-    @Test
-    public void moveZerosToTheFrontOfTheArray() {
-        int[] nums = {5, 0, 1, 0, 3, 12};
-        int pointer = nums.length - 1;
-
-        for (int i = nums.length - 1; i >= 0; i--) {
-            if (nums[i] != 0) {
-                nums[pointer] = nums[i];
-                pointer--;
-            }
-        }
-
-        while (pointer >= 0) {
-            nums[pointer] = 0;
-            pointer--;
-        }
-        System.out.println(Arrays.toString(nums));
-    }
 
     @Test //Need to revisit
     public void removeDuplicatesFromSortedArray() {
@@ -149,9 +91,5 @@ public class TwoPointerSolutions {
         }
     }
 
-    @Test
-    public void removeGivenElementFromAnArray(){
-
-    }
 
 }
