@@ -9,7 +9,7 @@ public class TestDataFactory {
 
 
     public static ArrayList<Employee> getEmployeeData() {
-        return new ArrayList<Employee>(Arrays.asList(
+        return new ArrayList<>(Arrays.asList(
                 new Employee(1, "amanda", "miller", "DEV", "SE", 19000.00, 30),
                 new Employee(2, "did", "morris", "DEV", "VP", 25000.00, 40),
                 new Employee(3, "arora", "maheshwari", "ADMIN", "VP", 27000.00, 45),
